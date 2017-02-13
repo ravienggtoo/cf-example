@@ -1,0 +1,42 @@
+---
+name: learn-bosh
+director_uuid: 63ddb6a6-d6fe-40e1-b16b-2ff6b2034c79
+
+releases:
+- name: learn-bosh-release-name
+  version: latest
+
+networks:
+- name: cf-example-network
+  subnets:
+  - range: 10.145.0.0/16
+    gateway: 10.145.0.1
+
+resource_pools:
+- name: cf-example-resource
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+  network: cf-example-network
+  cloud_properties: {}
+
+compilation:
+  workers: 2
+  network: default
+  cloud_properties: {}
+
+update:
+  canaries: 1
+  canary_watch_time: 60000
+  update_watch_time: 60000
+  max_in_flight: 2
+
+jobs:
+- name: app
+  templates:
+  - name: app
+  instances: 1
+  resource_pool: cf-example-resource
+  networks:
+  - name: cf-example-network
+  properties: {}

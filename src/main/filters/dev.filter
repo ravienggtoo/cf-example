@@ -1,0 +1,6 @@
+director_uuid=63ddb6a6-d6fe-40e1-b16b-2ff6b2034c79
+network_name=cf-example-network
+network_range=10.145.0.0/16
+network_gateway=10.145.0.1
+resource_name=cf-example-resource
+stemcell_name=bosh-warden-boshlite-ubuntu-trusty-go_agent
