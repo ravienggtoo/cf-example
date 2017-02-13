@@ -3,7 +3,7 @@ name: learn-bosh
 director_uuid: ${director_uuid}
 
 releases:
-- name: learn-bosh-release-name
+- name: Jenkins-CF-Example
   version: latest
 
 networks:
